@@ -1,0 +1,10 @@
+var comment = observable({
+  isLoaded: false,
+  text: null
+})
+autorun( function() {
+  if (comment.isLoaded) {
+    // not executed and therefore not tracked
+    alert(comment.text);
+  }
+})

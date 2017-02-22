@@ -1,0 +1,7 @@
+var villain = observable({
+  firstName: 'Hans',
+  lastName: 'Gruber',
+  get fullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+})

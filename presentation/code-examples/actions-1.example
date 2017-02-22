@@ -1,0 +1,9 @@
+var state = observable({
+  name: 'Hans',
+  updateName: action(function updateName(name) {
+    this.name = name;
+  })
+});
+useStrict(true);
+state.name = 'John' // throws error
+state.updateName('John') // is valid

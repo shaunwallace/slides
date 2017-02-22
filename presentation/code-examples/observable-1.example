@@ -1,0 +1,11 @@
+var state = {
+  _counter: 0,
+  get counter() {
+    // track which derivation is accessing
+    return this._counter;
+  }
+  set counter(value) {
+    this._counter = value;
+    // run all tracked reactions
+  }
+}

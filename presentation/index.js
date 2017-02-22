@@ -38,7 +38,8 @@ const images = {
   toilets: require("../assets/toilets.png"),
   mobx: require("../assets/mobx2.png"),
   flow: require("../assets/flow.png"),
-  mobxflownotext: require("../assets/mobx_flow_notext.png")
+  mobxflownotext: require("../assets/mobx_flow_notext.png"),
+  bazinga: require("../assets/Bazinga2.jpg")
 };
 
 preloader(images);
@@ -63,8 +64,15 @@ export default class Presentation extends React.Component {
           <Text textSize={32} textColor="secondary">@mcleo_d</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={2} textColor="secondary">Welcome Back!<br/>2017</Heading>
-          <Image src={images.react} height={400}/>
+          <Heading size={2} textColor="secondary">Wifi Details</Heading>
+          <hr/>
+          <Text size={6} textColor="secondary"><strong>Name:</strong> guestnet</Text>
+          <Text size={6} textColor="secondary"><strong>Security Type:</strong> WPA2-Personal</Text>
+          <Text size={6} textColor="secondary"><strong>Password:</strong> ...</Text>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2} fit textColor="secondary" lineHeight={1}>Welcome Back!</Heading>
+          <Image src={images.bazinga} height={400}/>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Image src={images.fire} height={600}/>
@@ -76,10 +84,12 @@ export default class Presentation extends React.Component {
           <Image src={images.sapient} height={250}/>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={3} textColor="secondary">React London -  BYOP Stats</Heading>
-          <h2>451 London React Members</h2>
-          <h2>87 Additional Members</h2>
-          <h2>4 Project Nights</h2>
+          <Heading size={2} textColor="secondary">Statistics</Heading>
+          <Heading size={4} textColor="secondary">React London -  BYOP</Heading>
+          <hr/>
+          <Text size={6} textColor="secondary"><strong>451 London React Members</strong></Text>
+          <Text size={6} textColor="secondary"><strong>87 Additional Members</strong></Text>
+          <Text size={6} textColor="secondary"><strong>4 Project Nights</strong></Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={3} textColor="secondary">Next React London<br/>Bring Your Own Project</Heading>
@@ -91,21 +101,14 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={5} textColor="secondary">React London<br/>Bring Your Own Project</Heading>
-          <Heading size={3} textColor="secondary" lineHeight={2}>News</Heading>
-          <Image src={images.react} height={400}/>
+          <Heading size={3} caps fit textColor="secondary">News</Heading>
+          <Image src={images.react} height={200}/>
         </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary" textColor="primary">
-          <Heading size={4} textColor="secondary" lineHeight={2}>Check Out Prettier</Heading>
-          <BlockQuote>
-            <Quote textSize={30}>
-              @mcleo_d npm.im/prettier-eslint
-              <br/><br/>
-              and npm.im/prettier-eslin… received some updates.
-              <br/><br/>
-              And npm.im/nps also got some updates...
-            </Quote>
-            <Cite textColor="black">@kentcdodds</Cite>
-          </BlockQuote>
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={4} fit textColor="secondary">We're on GitHub</Heading>
+          <Text size={6} textColor="secondary">Find Slides and Examples</Text>
+          <br/>
+          <Heading size={5} textColor="secondary">github.com/react-london-byop/</Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary" textColor="primary">
           <Heading size={4} textColor="secondary" lineHeight={2}>Cypress Worth Investigating</Heading>
@@ -135,7 +138,7 @@ export default class Presentation extends React.Component {
           <Heading size={4} fit textColor="secondary">Transparent Reactive<br/>Programming Library</Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={4} fit textColor="secondary">MobX is all about State</Heading>
+          <Heading size={4} fit textColor="secondary">MobX is all about<br/>Managing State</Heading>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={4} fit textColor="secondary">State is the root of all Evil</Heading>
@@ -152,13 +155,16 @@ export default class Presentation extends React.Component {
           </CodePane>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={2} fit textColor="secondary">When using MobX ...</Heading>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="primary">
           <Heading size={2} fit textColor="secondary">Consistency is guaranteed</Heading>
           <Heading size={6} textColor="secondary">Regardless how or when state is changed</Heading>
           <br/>
           <Image src={images.mobxflownotext} height={145}/>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={2} fit textColor="secondary">MobX Application Hooks</Heading>
+          <Heading size={2} fit textColor="secondary">MobX for Controlling State</Heading>
           <List>
             <ListItem textSize={34}>
               <strong>Observable</strong>
@@ -187,22 +193,22 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={2} fit textColor="secondary">What does Observable do?</Heading>
-          <CodePane lang="javascript" textSize={20} source={require("raw-loader!./code-examples/observable-2.example")}/>
-          <Text textAlign="left" textSize={30} lineHeight={2}>Transforms to something like</Text>
-          <CodePane lang="javascript" textSize={20} source={require("raw-loader!./code-examples/observable-1.example")}/>
+          <Heading size={2} fit textColor="secondary">What is Observable?</Heading>
+          <CodePane lang="javascript" textSize={18} source={require("raw-loader!./code-examples/observable-2.example")}/>
+          <Text textAlign="left" textSize={30} lineHeight={2}>Translates to the following</Text>
+          <CodePane lang="javascript" textSize={18} source={require("raw-loader!./code-examples/observable-1.example")}/>
           <Text textAlign="left" textSize={30} lineHeight={2}>It observes the properties not the object and not the values</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={2} fit textColor="secondary">What does Computed do?</Heading>
+          <Heading size={2} fit textColor="secondary">What is Computed?</Heading>
           <Text textAlign="left" textSize={30} lineHeight={2}>These are derived values that run on demand</Text>
           <CodePane lang="javascript" textSize={20} source={require("raw-loader!./code-examples/computed-1.example")}/>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={2} fit textColor="secondary">What does Autorun do?</Heading>
+          <Heading size={2} fit textColor="secondary">What is Autorun?</Heading>
           <Text textAlign="left" textSize={30} lineHeight={2}>These execute side effects</Text>
           <CodePane lang="javascript" textSize={20} source={require("raw-loader!./code-examples/autorun-1.example")}/>
-          <Text textAlign="left" textSize={30} lineHeight={2}>Runs on registration and when observable changes</Text>
+          <Text textAlign="left" textSize={30} lineHeight={2}>Runs once on registration and when observable changes</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={2} fit textColor="secondary">MobX tracks the executed Autorun</Heading>
@@ -210,7 +216,7 @@ export default class Presentation extends React.Component {
           <CodePane lang="javascript" textSize={20} source={require("raw-loader!./code-examples/autorun-2.example")}/>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={2} fit textColor="secondary">Mutating state can be messy</Heading>
+          <Heading size={2} fit textColor="secondary">Mutating state can be Messy</Heading>
           <br/>
           <CodePane lang="javascript" textSize={20} source={require("raw-loader!./code-examples/actions-1.example")}/>
         </Slide>
@@ -246,6 +252,7 @@ export default class Presentation extends React.Component {
             </Quote>
             <Cite textColor="black">@mweststrate</Cite>
           </BlockQuote>
+          <Text textSize={22} textColor="white" textAlign="right">This is currently in Alpha :D</Text>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={2} fit textColor="secondary">Quick Example</Heading>

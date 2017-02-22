@@ -15,6 +15,9 @@ import {
   Image,
   MarkdownSlides,
   CodePane,
+  Layout,
+  Fit,
+  Fill,
 } from "spectacle";
 
 // Import image preloader util
@@ -32,7 +35,11 @@ const images = {
   kat: require("../assets/kat.png"),
   logo: require("../assets/formidable-logo.svg"),
   markdown: require("../assets/markdown.png"),
-  react: require("../assets/react.png")
+  react: require("../assets/react.png"),
+
+  flow: require("../assets/flow.png"),
+  cookoo: require("../assets/cookoo.jpg"),
+  nachapp: require("../assets/nachapp.jpg"),
 };
 
 preloader(images);
@@ -52,10 +59,26 @@ export default class Presentation extends React.Component {
     return (
       <Deck transition={["fade"]} transitionDuration={500} theme={theme}>
         <Slide bgColor="primary">
-          <Image height={200} src={images.react}></Image>
-          <Heading size={1} fit textColor="secondary">
+          <Image height={200} src={images.flow}></Image>
+          <Heading size={1} fit textColor="secondary" margin={40}>
             Detecting errors in React apps,<br />before they ever happen, with Flow
           </Heading>
+          <Heading size={5} textColor="tertiary">James Isaac</Heading>
+        </Slide>
+        <Slide bgColor="secondary">
+          <Layout>
+            <Fill>
+              <Image src={images.cookoo} width={920}></Image>
+            </Fill>
+          </Layout>
+        </Slide>
+        <Slide bgColor="secondary">
+          <Heading size={5} textColor="primary">nachapp.com</Heading>
+          <Layout>
+            <Fill>
+              <Image src={images.nachapp} width={920}></Image>
+            </Fill>
+          </Layout>
         </Slide>
         {MarkdownSlides`
 ## Why static typing?
@@ -211,6 +234,7 @@ export type Store = ReduxStore<RootState, Action>
 
 - Currying/partial application (.bind)
 - ES6 spread
+- Must keep external references updated
 - Unsupported libraries
 - Libraries with errors (RN)
 - Server restarts / multi projects
@@ -223,37 +247,15 @@ export type Store = ReduxStore<RootState, Action>
 - Solid type system foundation - nullable from day one etc
 - Strong inference
 - Facebook support
-
----
-
-## Thank You
-
-- jamesisaac.me
-- @dotajames
         `}
         <Slide bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Typography</Heading>
-          <Heading size={1} textColor="secondary">Heading 1</Heading>
-          <Heading size={2} textColor="secondary">Heading 2</Heading>
-          <Heading size={3} textColor="secondary">Heading 3</Heading>
-          <Heading size={4} textColor="secondary">Heading 4</Heading>
-          <Heading size={5} textColor="secondary">Heading 5</Heading>
-          <Text size={6} textColor="secondary">Standard text</Text>
-        </Slide>
-        <Slide bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>Standard List</Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
+          <Heading size={2} textColor="primary">Thank You</Heading>
+          <List textColor="primary">
+            <ListItem>flowtype.org</ListItem>
+            <ListItem>jamesisaac.me</ListItem>
+            <ListItem>@dotajames</ListItem>
+            <ListItem>nachapp.com</ListItem>
           </List>
-        </Slide>
-        <Slide bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite>Author</Cite>
-          </BlockQuote>
         </Slide>
       </Deck>
     );

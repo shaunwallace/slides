@@ -13,6 +13,9 @@ import {
   Typeface
 } from "spectacle";
 
+// Import image preloader util
+import preloader from "spectacle/lib/utils/preloader";
+
 import CodeSlide from "spectacle-code-slide";
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
@@ -20,6 +23,10 @@ import createTheme from "spectacle/lib/themes/default";
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
+
+const images = {
+  battle: require("../assets/battle.jpg")
+};
 
 const theme = createTheme({
   codeBg: "#2a3b4c",
@@ -51,6 +58,7 @@ export default class Presentation extends React.Component {
             `<ul>
             <li>Extreme example but shows the problem at hand</li>
             <li>Lack of consistency can have a direct relationship on productivity</li>
+            <li>There are tons of tools that try to solve this problem but often naively</li>
             </ul>`
           }
           code={`const func=(x)=>{return x;};
@@ -253,6 +261,8 @@ func(
           transition={[""]}
           bgColor="codeBg"
           textColor="green"
+          bgImage={images.battle}
+          bgDarken={.4}
         >
            <Heading size={1} textColor="white" caps>Demo</Heading>
         </Slide>

@@ -61,7 +61,8 @@ export default class Presentation extends React.Component {
             <li>There are tons of tools that try to solve this problem but often naively</li>
             </ul>`
           }
-          code={`const func=(x)=>x;const foo={x:1,y:2};
+          code={`// please make me feel pretty again
+const foo=(x)=>x;const bar={x:1,y:2};
 [1,2,3,4].map((i)=>i + 1)
   .filter((i)=>i%2)
   .reduce((a,b)=>a+b)
@@ -78,17 +79,18 @@ export default class Presentation extends React.Component {
 
 
 
-const func = (x) => x;
+// 👍
+const foo = (x) => x;
 
-const foo = { x : 1, y : 2 };
+const bar = { x : 1, y : 2 };
 
 [1, 2, 3, 4]
   .map((i) => i + 1)
   .filter((i) => i % 2)
   .reduce((a, b) => a + b);`}
           ranges={[
-            { loc: [0, 4] },
-            { loc: [17, 26] }
+            { loc: [0, 5] },
+            { loc: [18, 27] }
           ]}
         />
         <Slide

@@ -61,8 +61,7 @@ export default class Presentation extends React.Component {
             <li>There are tons of tools that try to solve this problem but often naively</li>
             </ul>`
           }
-          code={`const func=(x)=>{return x;};
-const foo={x:1,y:2};
+          code={`const func=(x)=>x;const foo={x:1,y:2};
 [1,2,3,4].map((i)=>i + 1)
   .filter((i)=>i%2)
   .reduce((a,b)=>a+b)
@@ -79,7 +78,7 @@ const foo={x:1,y:2};
 
 
 
-const func = (x) => { return x; };
+const func = (x) => x;
 
 const foo = { x : 1, y : 2 };
 
@@ -88,13 +87,25 @@ const foo = { x : 1, y : 2 };
   .filter((i) => i % 2)
   .reduce((a, b) => a + b);`}
           ranges={[
-            { loc: [0, 5] },
-            { loc: [18, 26] }
+            { loc: [0, 4] },
+            { loc: [17, 26] }
           ]}
         />
-        <Slide transition={[""]} bgColor="codeBg">
+        <Slide
+          transition={["fade"]} 
+          bgColor="codeBg"
+          notes={`
+            Prettier is an opinionated JavaScript formatter with advanced support for language features from ES2017, JSX, and Flow.<br /><br />
+            It removes all original styling and ensures that all outputted JavaScript conforms to a consistent style
+          `}
+          >
           <Typeface googleFont="Dancing Script" weight={400}>
-            <Heading size={1} fit lineHeight={1} textColor="yellow">
+            <Heading
+              size={1}
+              fit
+              lineHeight={1}
+              textColor="yellow"
+            >
               Prettier
             </Heading>
             <div style={ { width: 50, margin: "0 auto" } }>
@@ -109,14 +120,17 @@ const foo = { x : 1, y : 2 };
         <Slide transition={["slide"]} bgColor="codeBg" notes={
             `<ul>
             <li>Takes code as input then passes that through a parser that returns an AST which is then printed by prettier</li>
-            <li>Prettier gets rid of all original styling and guarantees consistency by parsing JavaScript into an AST and pretty-printing the AST</li>
+            <li>Code -> AST -> IR -> output</li>
+            <li>IR is based on algorithm introduced by Wadler</li>
+            <li>group -> break on line width -> break recursively on sub groups</li>
+            <li>Guarantees consistency by parsing JavaScript into an AST and pretty-printing the AST</li>
             <li>Completely ignores all formatting of the given input</li>
             <li>Makes intelligent decisions concerning problems like max line length</li>
-              <uL>
+            <ul>
               <li>Understands that line length has a direct impact on coding style</li>
               <li>Will split code based on groupings.</li>
               <li>Groups are often nested and the printer will try to fit everything on one line, but if it doesn't fit it will break the outermost group first and try again</li>
-              </ul>
+            </ul>
             <li>ES2017, JSX, and flow support</li>
             <li>Limited config on purpose</li></ul>`
           }
@@ -182,12 +196,13 @@ return str;
           ]}
         />
         <Slide
-          transition={[""]}
+          transition={["spin"]}
           bgColor="codeBg"
           textColor="green"
           notes={`<ul>
             <li>- eslint in a lot of ways can identify problems that we configure it to identify
             but it does not have the capabilities to resolve most of them.</li>
+            <li>- it is a great tool for syntax errors and accidental globals</li>
             <li>- prettier looks at the input and takes into consideration some edge cases</li>
             <li>- examples being: indentation, newlines, expanded objects</li>
           </ul>`}
@@ -205,18 +220,17 @@ return str;
            <Heading size={1} textColor="white" caps>Ease of Integration</Heading>
         </Slide>
         <Slide
-          transition={[""]}
+          transition={["fade"]}
           bgColor="codeBg"
           textColor="green"
-          maxWidth={1200}
         >
            <List>
-            <ListItem>Includes a CLI</ListItem>
-            <ListItem><a style={ { color: "#8ebb69" } } href="https://prettier.github.io/prettier/">REPL</a></ListItem>
-            <ListItem>JavaScript API</ListItem>
-            <ListItem>Allows for ignores via comment primitives</ListItem>
-            <ListItem>Easy integrated in a wide varieties of IDEs</ListItem>
-            <ListItem>Can be run easily as precommit hook</ListItem>
+            <ListItem textSize={40}>Includes a CLI</ListItem>
+            <ListItem textSize={40}><a style={ { color: "#8ebb69" } } href="https://prettier.github.io/prettier/">REPL</a></ListItem>
+            <ListItem textSize={40}>JavaScript API</ListItem>
+            <ListItem textSize={40}>Allows for ignores via comment primitives</ListItem>
+            <ListItem textSize={40}>Easily integrated in a wide variety of IDEs</ListItem>
+            <ListItem textSize={40}>Can be run via a precommit hook</ListItem>
           </List>
         </Slide>
         <Slide
@@ -232,9 +246,9 @@ return str;
           lang="js"
           notes={`
             <ul>
-            <li>Aids in productivity which in turn makes us more efficient</li>
-            <li>Allow developers to move past the nuances and subjectivity and simply write code</li>
-            <li>Brings consistency among teams as a project grows and people fluxuate</li>
+              <li>Aids in productivity which in turn makes us more efficient</li>
+              <li>Allow developers to move past the nuances and subjectivity and simply write code</li>
+              <li>Brings consistency among teams as a project grows and people fluxuate</li>
             </ul>
           `}
           code={`// 1.
@@ -258,11 +272,16 @@ func(
           ]}
         />
         <Slide
-          transition={[""]}
+          transition={["fade"]}
           bgColor="codeBg"
           textColor="green"
           bgImage={images.battle}
           bgDarken={.4}
+          notes={`
+            <ul>
+              <li>commit code in a standardised way by an automated tool</li>
+            </ul>
+          `}
         >
            <Heading size={1} textColor="white" caps>Demo</Heading>
         </Slide>

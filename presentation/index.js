@@ -10,7 +10,8 @@ import {
   List,
   Quote,
   Slide,
-  Typeface
+  Typeface,
+  Text
 } from "spectacle";
 
 // Import image preloader util
@@ -51,6 +52,18 @@ export default class Presentation extends React.Component {
         controls={false}
         bgColor="codeBg"
       >
+        <Slide
+          transition={["fade"]}
+          bgColor="codeBg"
+          textColor="grey"
+        >
+          <Heading size={6} textColor="grey" caps>Shaun Wallace</Heading>
+          <Text textColor="grey" textSize="24px">Senior Experience Technologist</Text>
+          <Text textColor="blue" textSize="18px">
+            <span style={{ fontSize: 12, verticalAlign: "top", margin: "3px 2px 0 0", display: "inline-block" }}>@</span>
+            shaun_wallace
+          </Text>
+        </Slide>
         <CodeSlide
           bgColor="codeBg"
           lang="js"
